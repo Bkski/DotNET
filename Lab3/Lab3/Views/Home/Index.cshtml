@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    double liczba = (double)ViewData["random"];
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>@DateTime.Now.ToLongDateString()</p>
+    @if (liczba > 0.5)
+    {
+        <p style="background-color:red; color:white; padding:5px;">
+            @liczba
+        </p>
+    }
+    else
+    {
+        <p>@liczba</p>
+    }
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
