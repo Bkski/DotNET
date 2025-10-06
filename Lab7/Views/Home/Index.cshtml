@@ -1,0 +1,21 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using Lab7.Areas.Identity.Data
+@inject SignInManager<ApplicationUser> SignInManager
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+@model IEnumerable<Lab7.Models.Customer>
+<div>
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <a asp-controller="Home" asp-action="MyOrders">My Orders</a>
+    }
+
+    <ul>
+        @foreach (var item in Model)
+        {
+            <li>@item.Email</li>
+        }
+    </ul>
+</div>

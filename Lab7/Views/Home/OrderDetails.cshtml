@@ -1,0 +1,59 @@
+﻿@model Lab7.Models.Invoice
+
+<h2>Order details</h2>
+<h4>Invoice</h4>
+<hr />
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-3">Invoice ID</dt>
+        <dd class="col-sm-9">@Model.InvoiceId</dd>
+
+        <dt class="col-sm-3">Invoice Date</dt>
+        <dd class="col-sm-9">@Model.InvoiceDate.ToShortDateString()</dd>
+
+        <dt class="col-sm-3">Billing Address</dt>
+        <dd class="col-sm-9">
+            @Model.BillingAddress, @Model.BillingCity, @Model.BillingState, @Model.BillingCountry
+        </dd>
+
+        <dt class="col-sm-3">Total</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(modelItem => Model.Total)</dd>
+
+        <dt class="col-sm-3">Ordered Songs</dt>
+        <dd class="col-sm-9">
+            <table class="table table-sm table-borderless custom-row-lines">
+                <thead>
+                    <tr>
+                        <th>Track ID</th>
+                        <th>Track</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var line in Model.InvoiceLines)
+                    {
+                        <tr>
+                            <td>@line.TrackId</td>
+                            <td>@line.Track.Name</td>
+                            <td>@Html.DisplayFor(modelItem => line.UnitPrice)</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </dd>
+    </dl>
+</div>
+
+<a asp-action="MyOrders">Back to List</a>
+
+<style>
+    .custom-row-lines tr {
+        border-bottom: 1px solid #dee2e6;
+    }
+
+    .custom-row-lines th,
+    .custom-row-lines td {
+        border: none !important;
+    }
+</style>
