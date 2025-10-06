@@ -36,10 +36,10 @@ namespace Lab3.Controllers
         {
             if (ModelState.IsValid)
             {
-                _phoneBook.Add(contact);       // dodanie kontaktu do listy
-                return RedirectToAction("Index2"); // przekierowanie do listy kontaktów
+                _phoneBook.Add(contact);
+                return RedirectToAction("Index2");
             }
-            return View(contact); // jeœli dane s¹ niepoprawne – wróæ do formularza
+            return View(contact);
         }
         public IActionResult Delete(int id)
         {
