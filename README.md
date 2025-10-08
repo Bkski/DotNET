@@ -25,6 +25,10 @@ Chuj jeden wie co tam sie dzieje, hasło dla każdego usera to "P@ssw0rd" i jest
 
 Jakieś lisy ale nie podał strony html więc działają tylko requesty, najlepiej puszczać z http://localhost:5250/swagger/index.html
 
+Strona lisów jest pod:
+
+http://localhost:5250/
+
 Przykładowe dodanie lisa curlem
 
 curl -X POST http://localhost:5250/api/fox -H "Content-Type: application/json" -H "Authorization: Basic dXNlcjpwYXNzd29yZA==" -d "{\"name\":\"Foxy\",\"loves\":5,\"hates\":2}"
