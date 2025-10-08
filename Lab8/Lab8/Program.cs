@@ -74,7 +74,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseAuthentication();
 app.UseAuthorization();
-
+app.UseFileServer();
 app.MapControllers();
 
 app.Run();
